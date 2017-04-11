@@ -11,10 +11,26 @@
     {<p>we dont have any customers yet</p> }
     else
     {
-        <ul>
-            @foreach (var cu in Model)
-            { <li>@Html.ActionLink(cu.Name,"Details","Customers",new { id=cu.Id},null)</li>}
-        </ul>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Customers</th>
+                    <th>Membership Type</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                    @foreach (var cu in Model)
+                    {
+                        <tr>
+                            <td>@Html.ActionLink(cu.Name, "Details", "Customers", new { id = cu.Id }, null)</td>
+                            <td>@cu.MembershipType.Name</td>
+                        </tr>
+                    }
+                
+            </tbody>
+        </table>
+        
     }
 }
 

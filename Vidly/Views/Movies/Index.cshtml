@@ -10,11 +10,30 @@
     { <p>we dont have any movies yet</p>}
     else
     {
+        <table class="table-bordered table table-hover">
+            <thead>
+                <tr>
+                    <td>Movie</td>
+                    <td>Genre</td>
+                </tr>
+            </thead>
+            <tbody>
+                
+                    @foreach (var mov in Model)
+                    {
+                        <tr>
+                            <td>@Html.ActionLink(@mov.Name, "Details", "Movies", new { id = mov.Id }, null)</td>
+                            <td>@mov.Genre.Name</td>
+                            
+                        </tr>
+                    }
+            </tbody>
+        </table>
+
+
+
         <ul>
-            @foreach (var mov in Model)
-            {
-                <li>@mov.Name</li>
-            }
+           
         </ul>
     }
 
