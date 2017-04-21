@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-
+using Vidly.Models;
 namespace Vidly.Models
 {
     public class Customer
@@ -11,24 +11,24 @@ namespace Vidly.Models
         public int Id { get; set; }
 
 
-        [Required(ErrorMessage ="PLease Enter Customers name")]
+        [Required(ErrorMessage = "PLease Enter Customers name")]
         [StringLength(255)]
         public String Name { get; set; }
 
 
 
         public bool IsSubscribedToNewsletter { get; set; }
-        
+
 
         public MembershipType MembershipType { get; set; }
 
 
-        [Display(Name="Membership Type")]
-        
+        [Display(Name = "Membership Type")]
+
         public byte MembershipTypeId { get; set; }
 
         [Min18YearsIfAMember]
-        [Display(Name="Date of Birth")]
+        [Display(Name = "Date of Birth")]
         public DateTime? Birthday { get; set; }
     }
 }
