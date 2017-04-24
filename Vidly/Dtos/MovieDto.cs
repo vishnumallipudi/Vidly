@@ -24,8 +24,8 @@ namespace Vidly.Dtos
         public DateTime DataAdded { get; set; }
 
 
-        
-       
+        public GenreDto Genre { get; set; }
+
         public DateTime ReleasaeDate { get; set; }
 
 
