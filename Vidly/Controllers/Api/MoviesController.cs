@@ -9,8 +9,6 @@ using System.Web.Mvc;
 using Vidly.Dtos;
 using Vidly.Models;
 using AutoMapper;
-using System.Web.Security;
-
 namespace Vidly.Controllers.Api
 {
     public class MoviesController : ApiController
@@ -39,7 +37,6 @@ namespace Vidly.Controllers.Api
         }
         //POST /api/movies
         [System.Web.Http.HttpPost]
-        [System.Web.Http.Authorize(Roles = RoleName.CanManageMovies)]
         public IHttpActionResult CreateMovie(MovieDto movieDto)
         {
             if (!ModelState.IsValid)
@@ -53,7 +50,6 @@ namespace Vidly.Controllers.Api
         }
         //PUT /api/movies/1
         [System.Web.Http.HttpPut]
-        [System.Web.Http.Authorize(Roles = RoleName.CanManageMovies)]
         public IHttpActionResult UpdateMovie(int id, MovieDto movieDto)
         {
             if (!ModelState.IsValid)
@@ -70,7 +66,6 @@ namespace Vidly.Controllers.Api
         }
         //DELETE /api/Movies/1
         [System.Web.Http.HttpDelete]
-        [System.Web.Http.Authorize(Roles = RoleName.CanManageMovies)]
         public IHttpActionResult DeleteMovie(int id)
         {
             var movieInDb = _context.Movies.SingleOrDefault(m=>m.Id==id);
